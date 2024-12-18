@@ -1,6 +1,9 @@
 # 환경 변수 파일 제외
 .env
 
+#용량 큰 pkl 파일 제외 (google drive에서 다운)
+*.pkl
+
 # 로컬 테스트 파일 제외
 test_api.py
 data_processing.py

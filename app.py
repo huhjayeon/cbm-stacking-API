@@ -1,11 +1,24 @@
 from flask import Flask, request, jsonify
 import joblib
+import gdown
 import pandas as pd
 
 app = Flask(__name__)
 
 # 저장된 모델 불러오기
-model = joblib.load("stacking_model.pkl")
+# Google Drive 공유 링크 변환 후 URL
+url = "https://drive.google.com/uc?id=1RM77dpe7jwqhWW_kMgOu4hG4ZdUKH6nq"
+model_path = "stacking_model.pkl"
+
+
+# 모델 다운로드 및 불러오기
+try:
+    gdown.download(url, model_path, quiet=False)  # 모델 파일 다운로드
+    model = joblib.load(model_path)  # 모델 불러오기
+    print("모델이 성공적으로 다운로드 및 로드되었습니다.")
+except Exception as e:
+    print(f"모델 로드 중 오류 발생: {e}")
+
 
 # 예측 API 엔드포인트
 @app.route('/predict', methods=['POST'])
@@ -24,5 +37,6 @@ def predict():
 def home():
     return "Flask API is running!"
 
+# Flask 서버 실행 _ 로컬 테스트용
 if __name__ == "__main__":
     app.run(debug=True)
