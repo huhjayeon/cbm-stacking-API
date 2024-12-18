@@ -37,6 +37,7 @@ def predict():
 def home():
     return "Flask API is running!"
 
-# Flask 서버 실행 _ 로컬 테스트용
+# Flask 서버 실행
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
+
