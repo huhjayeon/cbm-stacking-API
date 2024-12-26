@@ -1,9 +1,19 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS 
 import joblib
 import gdown
 import pandas as pd
 
 app = Flask(__name__)
+
+# 특정 도메인 허용
+CORS(app, resources={
+    r"/*": {"origins": [
+        "http://localcms.siliconii.com",
+        "http://stgcms.siliconii.com",
+        "http://cms.siliconii.com"
+    ]}
+})
 
 # 저장된 모델 불러오기
 # Google Drive 공유 링크 변환 후 URL
