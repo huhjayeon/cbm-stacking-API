@@ -17,8 +17,8 @@ CORS(app, resources={
 
 # 저장된 모델 불러오기
 # Google Drive 공유 링크 변환 후 URL
-url = "https://drive.google.com/uc?id=1RM77dpe7jwqhWW_kMgOu4hG4ZdUKH6nq"
-model_path = "stacking_model.pkl"
+url = "https://drive.google.com/file/d/1mPoAk4RkTQzqhB2QuLeVmx1E2ASeijMd/view?usp=sharing"
+model_path = "stacking_model_ver1.pkl"
 
 
 # 모델 다운로드 및 불러오기
