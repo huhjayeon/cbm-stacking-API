@@ -6,6 +6,9 @@ import pandas as pd
 
 app = Flask(__name__)
 
+# 전역 스코프에서 model 초기화
+model = None
+
 # 특정 도메인 허용
 CORS(app, resources={
     r"/*": {"origins": [
