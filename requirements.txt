@@ -2,12 +2,13 @@ pip>=23.2
 setuptools>=68.0
 wheel>=0.38.4
 
+numpy==1.23.5
+scipy==1.10.1
+pandas==1.5.3
 scikit-learn==1.2.2
 xgboost==1.7.6
 lightgbm==3.3.5
 flask
 flask-cors
-pandas
-numpy
 joblib
 gunicorn

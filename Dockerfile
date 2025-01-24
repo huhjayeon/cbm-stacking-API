@@ -1,5 +1,4 @@
- 
-# 공식 Python 이미지 사용 (Railway는 Python 3.12를 지원하지 않을 수 있음)
+# 공식 Python 이미지 사용
 FROM python:3.10
 
 # 시스템 패키지 업데이트 및 필수 라이브러리 설치
@@ -20,7 +19,11 @@ COPY . /app
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# 패키지 설치 (캐시 비활성화)
+# 최신 pip, numpy, scipy 설치 (캐시 비활성화)
+RUN pip install --no-cache-dir -U pip setuptools wheel
+RUN pip install --no-cache-dir numpy==1.23.5 scipy==1.10.1 pandas==1.5.3
+
+# 패키지 설치
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 애플리케이션 실행
