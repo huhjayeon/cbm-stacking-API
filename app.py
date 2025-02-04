@@ -9,8 +9,8 @@ app = Flask(__name__)
 CORS(app, resources={
     r"/*": {"origins": [
         "http://localcms.siliconii.com",
-        "http://stgcms.siliconii.com",
-        "http://cms.siliconii.com"
+        "https://stgcms.siliconii.com",
+        "https://cms.siliconii.com"
     ]}
 })
 
